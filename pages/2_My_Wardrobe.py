@@ -29,6 +29,7 @@ from services.wardrobe_manager import (
 from services.image_processor import remove_background, save_wardrobe_image, auto_tag_image
 from services.wishlist_manager import add_wishlist_item, is_item_wishlisted
 from services.outfit_manager import create_outfit
+from services.image_url import get_image_url
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 IMAGE_DIR = os.path.join(DATA_DIR, "images")
@@ -209,12 +210,8 @@ def show_wardrobe_item_detail(item_id):
                 cols = st.columns(3)
                 for i, match in enumerate(matches):
                     with cols[i % 3]:
-                        match_img_path = os.path.join(IMAGE_DIR, f"{match['id']}.jpg")
                         st.markdown('<div class="item-card">', unsafe_allow_html=True)
-                        if os.path.exists(match_img_path):
-                            st.image(match_img_path, use_container_width=True)
-                        else:
-                            st.markdown('<div style="background:#f0f0f0;height:140px;display:flex;align-items:center;justify-content:center;font-size:36px;">👚</div>', unsafe_allow_html=True)
+                        st.image(get_image_url(match['id']), use_container_width=True)
                         st.markdown(f"""
                         <div class="item-card-body">
                             <div class="item-card-price">€{match['price']}</div>
@@ -231,7 +228,7 @@ def show_wardrobe_item_detail(item_id):
                             "color": match.get("color", match.get("colour", "")),
                             "price": float(match["price"]),
                             "condition": match.get("condition", "Good"),
-                            "image_path": f"data/images/{match['id']}.jpg",
+                            "image_path": get_image_url(match['id']),
                             "_source": "catalog",
                         }
                         mc1, mc2 = st.columns(2)
@@ -328,11 +325,7 @@ def show_wardrobe_item_detail(item_id):
                             else:
                                 st.markdown('<div style="background:#f0f0f0;height:120px;display:flex;align-items:center;justify-content:center;font-size:30px;">👕</div>', unsafe_allow_html=True)
                         else:
-                            cat_img = os.path.join(IMAGE_DIR, f"{piece['id']}.jpg")
-                            if os.path.exists(cat_img):
-                                st.image(cat_img, use_container_width=True)
-                            else:
-                                st.markdown('<div style="background:#f0f0f0;height:120px;display:flex;align-items:center;justify-content:center;font-size:30px;">👕</div>', unsafe_allow_html=True)
+                            st.image(get_image_url(piece['id']), use_container_width=True)
 
                         role_label = piece.get("role", "item").capitalize()
                         seed_label = " · Yours" if is_seed else ""
@@ -355,7 +348,7 @@ def show_wardrobe_item_detail(item_id):
                                 "color": piece.get("colour", piece.get("color", "")),
                                 "price": float(piece["price"]),
                                 "condition": piece.get("condition", "Good"),
-                                "image_path": f"data/images/{piece['id']}.jpg",
+                                "image_path": get_image_url(piece['id']),
                                 "_source": "catalog",
                             }
                             pc1, pc2 = st.columns(2)

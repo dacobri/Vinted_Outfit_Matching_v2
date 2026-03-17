@@ -32,6 +32,7 @@ setup_page("Style Assistant — Vinted Outfit Match V2")
 from services.style_assistant import chat, parse_item_references, clean_response_text
 from services.weather_service import get_weather_summary
 from services.profile_manager import load_profile
+from services.image_url import get_image_url
 from services.wardrobe_manager import load_wardrobe, get_item
 from services.outfit_manager import create_outfit
 from services.wishlist_manager import add_wishlist_item, is_item_wishlisted
@@ -75,7 +76,7 @@ def get_catalog_item(item_id):
                 "color": r.get("baseColour", ""),
                 "price": r["price"],
                 "condition": r.get("condition", "Good"),
-                "image_path": os.path.join(IMAGE_DIR, f"{r['id']}.jpg"),
+                "image_path": get_image_url(str(r['id'])),
                 "_source": "catalog",
             }
     except Exception:
@@ -162,12 +163,10 @@ def render_item_cards(items: list, msg_key: str):
                 img_path = os.path.join(WARDROBE_IMAGES_DIR, img_file) if img_file else ""
             else:
                 img_path = item.get("image_path", "")
-                if img_path and not img_path.startswith("/"):
-                    img_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), img_path)
 
             st.markdown('<div class="chat-item-card">', unsafe_allow_html=True)
 
-            if img_path and os.path.exists(img_path):
+            if img_path and (img_path.startswith("http") or os.path.exists(img_path)):
                 try:
                     st.image(img_path, use_container_width=True)
                 except Exception:
@@ -202,7 +201,7 @@ def render_item_cards(items: list, msg_key: str):
                             "color": color,
                             "price": float(item.get("price", 0)),
                             "condition": item.get("condition", "Good"),
-                            "image_path": f"data/images/{item['id']}.jpg",
+                            "image_path": get_image_url(item['id']),
                             "_source": "catalog",
                         }
                         if add_to_cart(cart_item):
@@ -219,7 +218,7 @@ def render_item_cards(items: list, msg_key: str):
                             "color": color,
                             "price": float(item.get("price", 0)),
                             "condition": item.get("condition", "Good"),
-                            "image_path": f"data/images/{item['id']}.jpg",
+                            "image_path": get_image_url(item['id']),
                             "_source": "catalog",
                         }
                         add_wishlist_item(wl_item)

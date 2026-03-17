@@ -44,5 +44,140 @@
     "gender": "Men",
     "image_filename": "7e93b236.png",
     "date_added": "2026-03-17T09:38:17.005790"
+  },
+  {
+    "id": "e297b1d0",
+    "name": "White Basic T-Shirt",
+    "type": "T-Shirt",
+    "color": "White",
+    "pattern": "Solid",
+    "material": "Cotton",
+    "season": [
+      "Spring",
+      "Summer",
+      "Fall",
+      "Winter"
+    ],
+    "occasion": [
+      "Casual",
+      "Sports",
+      "Travel"
+    ],
+    "formality": "Casual",
+    "gender": "Men",
+    "image_filename": "3824db0d.png",
+    "date_added": "2026-03-17T23:23:52.824877"
+  },
+  {
+    "id": "ea2103fe",
+    "name": "My Jeans",
+    "type": "Jeans",
+    "color": "Blue",
+    "pattern": "Solid",
+    "material": "Denim",
+    "season": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasion": [
+      "Casual",
+      "Travel",
+      "Smart Casual"
+    ],
+    "formality": "Casual",
+    "gender": "Men",
+    "image_filename": "e1eb0dc3.png",
+    "date_added": "2026-03-17T23:24:28.090627"
+  },
+  {
+    "id": "5c131396",
+    "name": "My Pants",
+    "type": "Trousers",
+    "color": "Beige",
+    "pattern": "Solid",
+    "material": "Cotton",
+    "season": [
+      "Spring",
+      "Summer",
+      "Fall"
+    ],
+    "occasion": [
+      "Casual",
+      "Smart Casual",
+      "Travel"
+    ],
+    "formality": "Smart Casual",
+    "gender": "Unisex",
+    "image_filename": "4c1f8eeb.png",
+    "date_added": "2026-03-17T23:25:09.195976"
+  },
+  {
+    "id": "d41907d0",
+    "name": "My Dress Shirt",
+    "type": "Shirt",
+    "color": "Blue",
+    "pattern": "Solid",
+    "material": "Cotton",
+    "season": [
+      "Spring",
+      "Summer",
+      "Fall",
+      "Winter"
+    ],
+    "occasion": [
+      "Business",
+      "Smart Casual",
+      "Formal",
+      "Travel"
+    ],
+    "formality": "Smart Casual",
+    "gender": "Men",
+    "image_filename": "dc08593f.png",
+    "date_added": "2026-03-17T23:25:35.151545"
+  },
+  {
+    "id": "908527ee",
+    "name": "My Sweater",
+    "type": "Sweater",
+    "color": "Black",
+    "pattern": "Solid",
+    "material": "Knit",
+    "season": [
+      "Fall",
+      "Winter",
+      "Spring"
+    ],
+    "occasion": [
+      "Casual",
+      "Smart Casual",
+      "Travel"
+    ],
+    "formality": "Casual",
+    "gender": "Unisex",
+    "image_filename": "ad112cae.png",
+    "date_added": "2026-03-17T23:25:49.815876"
+  },
+  {
+    "id": "b79782d7",
+    "name": "My Sneakers",
+    "type": "Sneakers",
+    "color": "Black",
+    "pattern": "Solid",
+    "material": "Leather",
+    "season": [
+      "Spring",
+      "Fall",
+      "Winter"
+    ],
+    "occasion": [
+      "Casual",
+      "Smart Casual",
+      "Travel"
+    ],
+    "formality": "Smart Casual",
+    "gender": "Men",
+    "image_filename": "14b75f44.png",
+    "date_added": "2026-03-17T23:26:17.625001"
   }
 ]

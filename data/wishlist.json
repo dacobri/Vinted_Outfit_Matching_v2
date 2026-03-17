@@ -1,4 +1,16 @@
 {
-  "items": [],
+  "items": [
+    {
+      "id": "6041",
+      "name": "UCB Men's Polo Neck With Lion Logo Navy Blue T-shirt",
+      "type": "Tshirts",
+      "color": "Navy Blue",
+      "price": 61.0,
+      "condition": "New",
+      "image_path": "https://res.cloudinary.com/dalaxsevq/image/upload/vinted/6041.jpg",
+      "_source": "catalog",
+      "wishlisted_at": "2026-03-17T23:22:37.508923"
+    }
+  ],
   "outfits": []
 }

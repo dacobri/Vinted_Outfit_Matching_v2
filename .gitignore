@@ -7,3 +7,4 @@ __pycache__/
 .idea/
 .streamlit/secrets.toml
 .u2net/
+data/images/

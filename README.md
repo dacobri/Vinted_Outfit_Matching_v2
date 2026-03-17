@@ -72,6 +72,16 @@ streamlit run app.py
 
 **Note:** The first wardrobe upload may be slow as `rembg` downloads its model (~170MB) on first use.
 
+## Image Hosting
+
+Product catalog images are served from **Cloudinary CDN** rather than bundled in the repository. All image URLs follow the pattern:
+
+```
+https://res.cloudinary.com/dalaxsevq/image/upload/vinted/{id}.jpg
+```
+
+The helper `services/image_url.py` centralises this — all catalog image references in the codebase call `get_image_url(item_id)` rather than constructing local paths directly. The `data/images/` directory is excluded from version control via `.gitignore` and is **not required** to run the app.
+
 ## Project Structure
 
 ```

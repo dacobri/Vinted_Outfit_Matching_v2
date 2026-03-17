@@ -17,6 +17,8 @@ import os
 import pandas as pd
 import random
 
+from services.image_url import get_image_url
+
 
 # ---------------------------------------------------------------------------
 # GENDER COMPATIBILITY
@@ -455,7 +457,7 @@ class OutfitMatcher:
                 "condition":   row["condition"],
                 "score":       int(row["_score"]),
                 "explanation": explanation,
-                "image_path":  f"data/images/{row['id']}.jpg",
+                "image_path":  get_image_url(row['id']),
             })
             if len(results) >= num_matches:
                 break
@@ -485,7 +487,7 @@ class OutfitMatcher:
             "seller":      seed["seller"],
             "price":       seed["price"],
             "condition":   seed["condition"],
-            "image_path":  f"data/images/{seed['id']}.jpg",
+            "image_path":  get_image_url(seed['id']),
             "is_seed":     True,
         }]
 
@@ -534,7 +536,7 @@ class OutfitMatcher:
                 "seller":      best["seller"],
                 "price":       best["price"],
                 "condition":   best["condition"],
-                "image_path":  f"data/images/{best['id']}.jpg",
+                "image_path":  get_image_url(best['id']),
                 "is_seed":     False,
             })
 
@@ -641,7 +643,7 @@ class OutfitMatcher:
                 "condition":   row["condition"],
                 "score":       int(row["_score"]),
                 "explanation": explanation,
-                "image_path":  f"data/images/{row['id']}.jpg",
+                "image_path":  get_image_url(row['id']),
             })
             if len(results) >= num_matches:
                 break
@@ -823,7 +825,7 @@ class OutfitMatcher:
                 "seller": best["seller"],
                 "price": best["price"],
                 "condition": best["condition"],
-                "image_path": f"data/images/{best['id']}.jpg",
+                "image_path": get_image_url(best['id']),
                 "is_seed": False,
                 "_source": "catalog",
             })

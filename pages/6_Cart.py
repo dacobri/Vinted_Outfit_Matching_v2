@@ -14,6 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 # Shared UI: page config + CSS + sidebar (must be first)
 from services.shared_ui import setup_page, remove_from_cart, get_cart_count
+from services.image_url import get_image_url
 setup_page("Cart — Vinted Outfit Match V2")
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
@@ -21,13 +22,7 @@ IMAGE_DIR = os.path.join(DATA_DIR, "images")
 
 
 def get_image(item_id):
-    path = os.path.join(IMAGE_DIR, f"{int(item_id)}.jpg")
-    if os.path.exists(path):
-        try:
-            return Image.open(path)
-        except Exception:
-            return None
-    return None
+    return get_image_url(int(item_id)) if item_id else None
 
 
 # ---------------------------------------------------------------------------
@@ -83,7 +78,7 @@ for idx, item in enumerate(cart_items):
     item_col, info_col, price_col, action_col = st.columns([1, 3, 1, 1])
 
     with item_col:
-        img = get_image(item.get("id", 0))
+        img = item.get("image_path") or get_image(item.get("id", 0))
         if img:
             st.image(img, width=80)
         else:

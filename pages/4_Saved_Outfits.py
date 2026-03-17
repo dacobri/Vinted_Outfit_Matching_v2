@@ -18,6 +18,7 @@ setup_page("My Outfits — Vinted Outfit Match V2")
 
 from services.outfit_manager import load_outfits, delete_outfit, create_outfit
 from services.wardrobe_manager import load_wardrobe
+from services.image_url import get_image_url
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 IMAGE_DIR = os.path.join(DATA_DIR, "images")
@@ -224,22 +225,25 @@ else:
                                     st.image(img_path, use_container_width=True)
                                     img_shown = True
 
-                            # Try catalog image
+                            # Try catalog image via Cloudinary
                             if not img_shown and source == "catalog":
-                                catalog_img = os.path.join(IMAGE_DIR, f"{oi.get('id', '')}.jpg")
-                                if os.path.exists(catalog_img):
-                                    st.image(catalog_img, use_container_width=True)
-                                    img_shown = True
+                                oi_id = oi.get("id", "")
+                                if oi_id:
+                                    try:
+                                        st.image(get_image_url(oi_id), use_container_width=True)
+                                        img_shown = True
+                                    except Exception:
+                                        pass
 
-                            # Also try image_path field
+                            # Also try image_path field (handles both URLs and local paths)
                             if not img_shown:
                                 img_path_field = oi.get("image_path", "")
-                                if img_path_field:
-                                    if not img_path_field.startswith("/"):
-                                        img_path_field = os.path.join(os.path.dirname(os.path.dirname(__file__)), img_path_field)
-                                    if os.path.exists(img_path_field):
+                                if img_path_field and (img_path_field.startswith("http") or os.path.exists(img_path_field)):
+                                    try:
                                         st.image(img_path_field, use_container_width=True)
                                         img_shown = True
+                                    except Exception:
+                                        pass
 
                             if not img_shown:
                                 st.markdown('<div style="background:#f5f5f5;height:80px;display:flex;align-items:center;justify-content:center;border-radius:6px;">👕</div>', unsafe_allow_html=True)

@@ -24,6 +24,7 @@ from services.weather_service import get_weather
 from services.wardrobe_manager import load_wardrobe, search_items
 from services.outfit_manager import load_outfits, create_outfit
 from services.profile_manager import get_profile_summary
+from services.image_url import get_image_url
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 CATALOG_PATH = os.path.join(DATA_DIR, "vinted_catalog.csv")
@@ -233,7 +234,7 @@ def _execute_tool(name: str, args: dict) -> dict:
                     "occasion": row.get("usage", ""),
                     "gender": row.get("gender", ""),
                     "condition": row.get("condition", "Good"),
-                    "image_path": f"data/images/{row['id']}.jpg",
+                    "image_path": get_image_url(row['id']),
                     "_source": "catalog",
                 })
             return {"items": items, "count": len(items)}

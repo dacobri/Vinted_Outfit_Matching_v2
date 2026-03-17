@@ -20,6 +20,7 @@ setup_page("Browse & Match — Vinted Outfit Match V2")
 
 from services.matching_engine import OutfitMatcher
 from services.wishlist_manager import add_wishlist_item, is_item_wishlisted
+from services.image_url import get_image_url
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 IMAGE_DIR = os.path.join(DATA_DIR, "images")
@@ -67,13 +68,7 @@ def load_catalog():
 
 
 def get_image(item_id):
-    path = os.path.join(IMAGE_DIR, f"{int(item_id)}.jpg")
-    if os.path.exists(path):
-        try:
-            return Image.open(path)
-        except Exception:
-            return None
-    return None
+    return get_image_url(int(item_id))
 
 
 def condition_badge(cond):
@@ -277,7 +272,7 @@ def show_item_detail(item_id):
                     "color": item["baseColour"],
                     "price": float(item["price"]),
                     "condition": item.get("condition", "Good"),
-                    "image_path": f"data/images/{item['id']}.jpg",
+                    "image_path": get_image_url(item['id']),
                     "_source": "catalog",
                 }
                 added = add_to_cart(cart_item)
@@ -295,7 +290,7 @@ def show_item_detail(item_id):
                     "color": item["baseColour"],
                     "price": float(item["price"]),
                     "condition": item.get("condition", "Good"),
-                    "image_path": f"data/images/{item['id']}.jpg",
+                    "image_path": get_image_url(item['id']),
                     "_source": "catalog",
                 }
                 add_wishlist_item(wl_item)
@@ -316,7 +311,7 @@ def show_item_detail(item_id):
                     "color": item["baseColour"],
                     "price": float(item["price"]),
                     "condition": item.get("condition", "Good"),
-                    "image_path": f"data/images/{item['id']}.jpg",
+                    "image_path": get_image_url(item['id']),
                     "_source": "catalog",
                 }
                 st.session_state.chat_context = (
@@ -373,7 +368,7 @@ def show_item_detail(item_id):
                         "color": match.get("color", match.get("colour", "")),
                         "price": float(match["price"]),
                         "condition": match.get("condition", "Good"),
-                        "image_path": f"data/images/{match['id']}.jpg",
+                        "image_path": get_image_url(match['id']),
                         "_source": "catalog",
                     }
                     mc1, mc2 = st.columns(2)
@@ -447,7 +442,7 @@ def show_item_detail(item_id):
                         "color": piece.get("colour", piece.get("color", "")),
                         "price": float(piece["price"]),
                         "condition": piece.get("condition", "Good"),
-                        "image_path": f"data/images/{piece['id']}.jpg",
+                        "image_path": get_image_url(piece['id']),
                         "_source": "catalog",
                     }
                     pc1, pc2 = st.columns(2)
@@ -472,7 +467,7 @@ def show_item_detail(item_id):
                     "color": p.get("colour", p.get("color", "")),
                     "price": float(p["price"]),
                     "condition": p.get("condition", "Good"),
-                    "image_path": f"data/images/{p['id']}.jpg",
+                    "image_path": get_image_url(p['id']),
                     "_source": "catalog",
                 }
                 for p in bundle

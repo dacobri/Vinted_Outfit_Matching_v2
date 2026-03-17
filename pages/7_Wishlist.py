@@ -23,6 +23,7 @@ from services.wishlist_manager import (
 )
 from services.outfit_manager import create_outfit
 from services.wardrobe_manager import load_wardrobe
+from services.image_url import get_image_url
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 IMAGE_DIR = os.path.join(DATA_DIR, "images")
@@ -96,20 +97,12 @@ if items:
                             except Exception:
                                 pass
                 else:
-                    img_path = os.path.join(IMAGE_DIR, f"{item_id}.jpg")
-                    if not os.path.exists(img_path):
-                        # Try image_path field
-                        img_path_field = item.get("image_path", "")
-                        if img_path_field and not img_path_field.startswith("/"):
-                            img_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), img_path_field)
-                        else:
-                            img_path = img_path_field
-                    if img_path and os.path.exists(img_path):
-                        try:
-                            st.image(img_path, use_container_width=True)
-                            img_shown = True
-                        except Exception:
-                            pass
+                    img_path = item.get("image_path") or get_image_url(item_id)
+                    try:
+                        st.image(img_path, use_container_width=True)
+                        img_shown = True
+                    except Exception:
+                        pass
 
                 if not img_shown:
                     st.markdown('<div style="background:#f0f0f0;height:160px;display:flex;align-items:center;justify-content:center;font-size:30px;">👕</div>', unsafe_allow_html=True)
@@ -140,7 +133,7 @@ if items:
                                 "color": color,
                                 "price": float(item.get("price", 0)),
                                 "condition": item.get("condition", "Good"),
-                                "image_path": item.get("image_path", f"data/images/{item_id}.jpg"),
+                                "image_path": item.get("image_path", get_image_url(item_id)),
                                 "_source": "catalog",
                             }
                             add_to_cart(cart_item)
@@ -199,21 +192,23 @@ if outfits:
                                     st.image(img_p, use_container_width=True)
                                     img_shown = True
 
-                            # Try catalog image
+                            # Try catalog image via Cloudinary
                             if not img_shown and oi_source == "catalog":
-                                cat_img = os.path.join(IMAGE_DIR, f"{oi_id}.jpg")
-                                if os.path.exists(cat_img):
-                                    st.image(cat_img, use_container_width=True)
+                                cat_url = oi.get("image_path") or get_image_url(oi_id)
+                                try:
+                                    st.image(cat_url, use_container_width=True)
                                     img_shown = True
+                                except Exception:
+                                    pass
 
                             if not img_shown:
                                 img_path_field = oi.get("image_path", "")
-                                if img_path_field:
-                                    if not img_path_field.startswith("/"):
-                                        img_path_field = os.path.join(os.path.dirname(os.path.dirname(__file__)), img_path_field)
-                                    if os.path.exists(img_path_field):
+                                if img_path_field and (img_path_field.startswith("http") or os.path.exists(img_path_field)):
+                                    try:
                                         st.image(img_path_field, use_container_width=True)
                                         img_shown = True
+                                    except Exception:
+                                        pass
 
                             if not img_shown:
                                 st.markdown('<div style="background:#f5f5f5;height:80px;display:flex;align-items:center;justify-content:center;border-radius:6px;">👕</div>', unsafe_allow_html=True)

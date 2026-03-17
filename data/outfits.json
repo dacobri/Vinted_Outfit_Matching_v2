@@ -88,5 +88,71 @@
     "source": "manual",
     "weather_info": "",
     "created_at": "2026-03-17T10:56:30.646949"
+  },
+  {
+    "id": "91f94d59",
+    "name": "t",
+    "item_ids": [
+      "6041",
+      "5891"
+    ],
+    "occasion": "Casual",
+    "season": "All",
+    "source": "assistant",
+    "weather_info": "",
+    "created_at": "2026-03-17T23:22:53.026277",
+    "recommended_items": [
+      {
+        "id": "6041",
+        "name": "UCB Men's Polo Neck With Lion Logo Navy Blue T-shirt",
+        "type": "Tshirts",
+        "color": "Navy Blue",
+        "_source": "catalog",
+        "price": 61,
+        "image_path": "https://res.cloudinary.com/dalaxsevq/image/upload/vinted/6041.jpg",
+        "condition": "New"
+      },
+      {
+        "id": "5891",
+        "name": "Puma Men's Stripe Polo Black T-shirt",
+        "type": "Tshirts",
+        "color": "Black",
+        "_source": "catalog",
+        "price": 21,
+        "image_path": "https://res.cloudinary.com/dalaxsevq/image/upload/vinted/5891.jpg",
+        "condition": "Fair"
+      }
+    ]
+  },
+  {
+    "id": "dc560f99",
+    "name": "Monday Work Outfit",
+    "item_ids": [
+      "d41907d0",
+      "5c131396"
+    ],
+    "occasion": "Casual",
+    "season": "All",
+    "source": "assistant",
+    "weather_info": "",
+    "created_at": "2026-03-17T23:26:56.301013",
+    "recommended_items": [
+      {
+        "id": "d41907d0",
+        "name": "My Dress Shirt",
+        "type": "Shirt",
+        "color": "Blue",
+        "_source": "wardrobe",
+        "image_filename": "dc08593f.png"
+      },
+      {
+        "id": "5c131396",
+        "name": "My Pants",
+        "type": "Trousers",
+        "color": "Beige",
+        "_source": "wardrobe",
+        "image_filename": "4c1f8eeb.png"
+      }
+    ]
   }
 ]

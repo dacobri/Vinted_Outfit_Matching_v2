@@ -1,0 +1,8 @@
+streamlit>=1.30.0
+pandas
+Pillow
+google-genai>=1.0.0
+requests
+rembg[cpu]
+onnxruntime
+python-dotenv

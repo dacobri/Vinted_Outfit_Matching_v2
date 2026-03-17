@@ -1,0 +1,27 @@
+{
+  "name": "Brice",
+  "city": "Barcelona",
+  "gender": "Men",
+  "top_size": "M",
+  "bottom_size": "M",
+  "shoe_size": "EU 42",
+  "style_preferences": [
+    "Casual",
+    "Classic",
+    "Formal",
+    "Sporty"
+  ],
+  "preferred_colors": [
+    "Black",
+    "White",
+    "Navy",
+    "Grey",
+    "Beige",
+    "Brown",
+    "Green",
+    "Blue",
+    "Teal",
+    "Burgundy",
+    "Olive"
+  ]
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "c5250d16",
+    "name": "test",
+    "item_ids": [
+      "191537ca",
+      "59814",
+      "8063"
+    ],
+    "occasion": "Casual",
+    "season": "All",
+    "source": "assistant",
+    "weather_info": "",
+    "created_at": "2026-03-17T10:32:27.954593",
+    "recommended_items": [
+      {
+        "id": "191537ca",
+        "name": "My Item",
+        "type": "Shirt",
+        "color": "White",
+        "_source": "wardrobe",
+        "image_filename": "7e93b236.png"
+      },
+      {
+        "id": "59814",
+        "name": "United Colors of Benetton Men's Navy Blue Trousers",
+        "type": "Trousers",
+        "color": "Navy Blue",
+        "_source": "catalog",
+        "price": 65,
+        "image_path": "data/images/59814.jpg",
+        "condition": "New"
+      },
+      {
+        "id": "8063",
+        "name": "Red Tape Men's Formal Leather Black Shoe",
+        "type": "Formal Shoes",
+        "color": "Black",
+        "_source": "catalog",
+        "price": 14,
+        "image_path": "data/images/8063.jpg",
+        "condition": "Good"
+      }
+    ]
+  },
+  {
+    "id": "8a261ef9",
+    "name": "Cozy weekend look",
+    "item_ids": [
+      "0be1aed1",
+      "11349"
+    ],
+    "occasion": "Casual",
+    "season": "All",
+    "source": "assistant",
+    "weather_info": "",
+    "created_at": "2026-03-17T10:55:54.682176",
+    "recommended_items": [
+      {
+        "id": "0be1aed1",
+        "name": "Esade Hoodie",
+        "type": "Hoodie",
+        "color": "Navy Blue",
+        "_source": "wardrobe",
+        "image_filename": "6e94674c.png"
+      },
+      {
+        "id": "11349",
+        "name": "Lee Men Blue Chicago Fit Jeans",
+        "type": "Jeans",
+        "color": "Blue",
+        "_source": "catalog",
+        "price": 34,
+        "image_path": "data/images/11349.jpg",
+        "condition": "Fair"
+      }
+    ]
+  },
+  {
+    "id": "eb16aa0e",
+    "name": "Test 3",
+    "item_ids": [
+      "0be1aed1",
+      "191537ca"
+    ],
+    "occasion": "Casual",
+    "season": "Spring",
+    "source": "manual",
+    "weather_info": "",
+    "created_at": "2026-03-17T10:56:30.646949"
+  }
+]

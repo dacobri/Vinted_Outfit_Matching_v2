@@ -1,0 +1,48 @@
+[
+  {
+    "id": "0be1aed1",
+    "name": "Esade Hoodie",
+    "type": "Hoodie",
+    "color": "Navy Blue",
+    "pattern": "Graphic",
+    "material": "Knit",
+    "season": [
+      "Spring",
+      "Fall",
+      "Winter"
+    ],
+    "occasion": [
+      "Casual",
+      "Sports",
+      "Travel"
+    ],
+    "formality": "Casual",
+    "gender": "Unisex",
+    "image_filename": "6e94674c.png",
+    "date_added": "2026-03-16T20:44:20.208171"
+  },
+  {
+    "id": "191537ca",
+    "name": "My Item",
+    "type": "Shirt",
+    "color": "White",
+    "pattern": "Solid",
+    "material": "Cotton",
+    "season": [
+      "Spring",
+      "Summer",
+      "Fall",
+      "Winter"
+    ],
+    "occasion": [
+      "Business",
+      "Formal",
+      "Smart Casual",
+      "Party"
+    ],
+    "formality": "Business",
+    "gender": "Men",
+    "image_filename": "7e93b236.png",
+    "date_added": "2026-03-17T09:38:17.005790"
+  }
+]

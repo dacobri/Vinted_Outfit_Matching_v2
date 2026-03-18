@@ -10,6 +10,17 @@
       "image_path": "https://res.cloudinary.com/dalaxsevq/image/upload/vinted/6041.jpg",
       "_source": "catalog",
       "wishlisted_at": "2026-03-17T23:22:37.508923"
+    },
+    {
+      "id": "34204",
+      "name": "Proline Men Navy Track Pants",
+      "type": "Track Pants",
+      "color": "Navy Blue",
+      "price": 144.0,
+      "condition": "Like new",
+      "image_path": "https://res.cloudinary.com/dalaxsevq/image/upload/vinted/34204.jpg",
+      "_source": "catalog",
+      "wishlisted_at": "2026-03-18T13:15:49.092538"
     }
   ],
   "outfits": []
